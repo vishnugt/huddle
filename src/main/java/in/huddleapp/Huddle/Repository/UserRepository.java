@@ -1,5 +1,6 @@
-package in.huddleapp.Huddle.Controllers;
+package in.huddleapp.Huddle.Repository;
 
+import in.huddleapp.Huddle.Models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package in.huddleapp.Huddle.Controllers;
+package in.huddleapp.Huddle.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
