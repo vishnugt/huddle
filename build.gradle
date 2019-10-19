@@ -19,6 +19,11 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
 
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.2.0.RELEASE'
+    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.3.7.RELEASE'
+    compile group: 'com.auth0', name: 'jwks-rsa', version: '0.9.0'
+    compile group: 'org.springframework.security', name: 'spring-security-jwt', version: '1.0.11.RELEASE'
+
 
 }
 
