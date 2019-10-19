@@ -2,10 +2,8 @@ package in.huddleapp.Huddle.Controllers;
 
 import in.huddleapp.Huddle.Models.DatabaseModels.MajorEventType;
 import in.huddleapp.Huddle.Models.DatabaseModels.MinorEventType;
-import in.huddleapp.Huddle.Models.DatabaseModels.User;
 import in.huddleapp.Huddle.Repository.MajorEventTypeRepository;
 import in.huddleapp.Huddle.Repository.MinorEventTypeRepository;
-import in.huddleapp.Huddle.Repository.UserRepository;
 import in.huddleapp.Huddle.Utility.UrlConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,7 +23,7 @@ public class EventTypeController {
     @Autowired
     private MinorEventTypeRepository minorEventTypeRepository;
 
-    @PostMapping(path = UrlConstants.MAJOR_ADD)
+    @PostMapping(path = UrlConstants.EVENT_MAJOR_ADD)
     public @ResponseBody
     Boolean addNewMajorType(@RequestParam String name) {
         MajorEventType majorEventType = new MajorEventType(name);
@@ -34,13 +31,13 @@ public class EventTypeController {
         return true;
     }
 
-    @GetMapping(path = UrlConstants.MAJOR_ALL)
+    @GetMapping(path = UrlConstants.EVENT_MAJOR_ALL)
     public @ResponseBody
     Iterable<MajorEventType> getAllMajorEntityTypes() {
         return majorEventTypeRepository.findAll();
     }
 
-    @PostMapping(path = UrlConstants.MINOR_ADD)
+    @PostMapping(path = UrlConstants.EVENT_MINOR_ADD)
     public @ResponseBody
     Boolean addNewMinorType(@RequestParam Integer majorTypeId, @RequestParam String name) {
         Optional<MajorEventType> majorEventType = majorEventTypeRepository.findById(majorTypeId);
@@ -54,7 +51,7 @@ public class EventTypeController {
         return true;
     }
 
-    @GetMapping(path = UrlConstants.MINOR_ALL)
+    @GetMapping(path = UrlConstants.EVENT_MINOR_ALL)
     public @ResponseBody
     Iterable<MinorEventType> getAllMajorEntityTypes(@RequestParam Integer majorTypeId) {
         Optional<MajorEventType> majorEventType = majorEventTypeRepository.findById(majorTypeId);
