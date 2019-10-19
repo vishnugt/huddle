@@ -1,6 +1,6 @@
 package in.huddleapp.Huddle.Controllers;
 
-import in.huddleapp.Huddle.Models.User;
+import in.huddleapp.Huddle.Models.DatabaseModels.User;
 import in.huddleapp.Huddle.Repository.UserRepository;
 import in.huddleapp.Huddle.Utility.UrlConstants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController
 {
 		@Autowired private UserRepository userRepository;
-
 
 		@PostMapping(path = UrlConstants.ADD_USER)
 		public @ResponseBody
@@ -35,5 +34,4 @@ public class UserController
 		{
 				return userRepository.findAll();
 		}
-
 }
